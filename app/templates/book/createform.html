@@ -1,0 +1,42 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="display-4 text-center my-5">Add Book</h1>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <form action="{{ url_for('books.createform') }}" method="POST" class="mb-5">
+                {{ form.hidden_tag() }}
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">{{ form.name.label }}</label>
+                    {{ form.name(class="form-control", id="name") }}
+                </div>
+
+                <div class="mb-3">
+                    <label for="price" class="form-label">{{ form.price.label }}</label>
+                    {{ form.price(class="form-control", id="price") }}
+                </div>
+
+                <div class="mb-3">
+                    <label  class="form-label">{{ form.NumberPage.label }}</label>
+                    {{ form.NumberPage(class="form-control", id="NumberPage") }}
+                </div>
+
+                <div class="mb-3">
+                    <label  class="form-label">{{ form.image.label }}</label>
+                    {{ form.image(class="form-control", id="image") }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">{{ form.category_id.label }}</label>
+                    {{ form.category_id(class="form-control", id="category_id") }}
+                </div>
+
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
